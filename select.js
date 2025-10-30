@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     const characters = [
-      { name: "Scorpion", symbol: "🔥", img: "https://i.imgur.com/2RzvLrK.png" },
-      { name: "Sub-Zero", symbol: "❄️", img: "https://i.imgur.com/IsjYzSO.png" },
-      { name: "Raiden", symbol: "⚡", img: "https://i.imgur.com/zvJl6no.png" },
-      { name: "Kitana", symbol: "🌀", img: "https://i.imgur.com/ewDd3AQ.png" },
-      { name: "Liu Kang", symbol: "🐉", img: "https://i.imgur.com/5v4m0nb.png" },
-      { name: "Sonya", symbol: "💥", img: "https://i.imgur.com/DqV33Pw.png" },
-      { name: "Johnny Cage", symbol: "🎬", img: "https://i.imgur.com/VYbQFQZ.png" },
-      { name: "Kano", symbol: "🔪", img: "https://i.imgur.com/ZRjC9ta.png" },
-      { name: "Mileena", symbol: "💋", img: "https://i.imgur.com/VOByHn1.png" },
-      { name: "Kung Lao", symbol: "👒", img: "https://i.imgur.com/XZMIj2W.png" },
-      { name: "Goro", symbol: "💪", img: "https://i.imgur.com/Vm7a95e.png" },
-      { name: "Reptile", symbol: "🦎", img: "https://i.imgur.com/ebMKFeV.png" },
+      { name: "Blaze Fang", symbol: "🔥", img: "https://i.imgur.com/2RzvLrK.png" },
+      { name: "Frost Viper", symbol: "❄️", img: "https://i.imgur.com/IsjYzSO.png" },
+      { name: "Thunder Wraith", symbol: "⚡", img: "https://i.imgur.com/zvJl6no.png" },
+      { name: "Shadow Lotus", symbol: "🌀", img: "https://i.imgur.com/ewDd3AQ.png" },
+      { name: "Dragon Pulse", symbol: "🐉", img: "https://i.imgur.com/5v4m0nb.png" },
+      { name: "Iron Fist", symbol: "💥", img: "https://i.imgur.com/DqV33Pw.png" },
+      { name: "Venom Kiss", symbol: "🎬", img: "https://i.imgur.com/VYbQFQZ.png" },
+      { name: "Skull Razor", symbol: "🔪", img: "https://i.imgur.com/ZRjC9ta.png" },
+      { name: "Jade Serpent", symbol: "💋", img: "https://i.imgur.com/VOByHn1.png" },
+      { name: "Storm Hat", symbol: "👒", img: "https://i.imgur.com/XZMIj2W.png" },
+      { name: "Titan Slam", symbol: "💪", img: "https://i.imgur.com/Vm7a95e.png" },
+      { name: "Crystal Lizard", symbol: "🦎", img: "https://i.imgur.com/ebMKFeV.png" },
     ];
   
     const grid1 = document.getElementById("grid1");
@@ -49,10 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedP1 = char;
         info1.innerHTML = `<h3>${char.name}</h3>
                            <p>Movimento: WASD | Ataque: F | Poder: G</p>`;
-        document.addEventListener("keydown", e => {
+        document.addEventListener("keydown", function enterLock(e) {
           if (e.key === "Enter") {
             p1Locked = true;
             info1.innerHTML += `<p style="color:red;">Personagem bloqueado!</p>`;
+            document.removeEventListener("keydown", enterLock); // remove listener para não travar
           }
         });
       } else if (player === 2) {
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            <p>Movimento: ←↑↓→ | Ataque: 1 | Poder: 2</p>`;
       }
   
+      // Habilita o botão apenas quando ambos selecionaram
       if (selectedP1 && selectedP2) {
         arenaBtn.disabled = false;
         arenaBtn.style.boxShadow = "0 0 25px #f5c518";
@@ -75,9 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
       grid.querySelectorAll(".character").forEach(c => c.classList.remove("selected"));
     }
   
+    // 🔗 Redireciona para a Parte 3 (arena.html)
     arenaBtn.addEventListener("click", () => {
-      alert(`Arena será escolhida! P1: ${selectedP1.name} vs P2: ${selectedP2.name}`);
-      window.location.href = "arena.html"; // próxima parte
+      if (selectedP1 && selectedP2) {
+        // Aqui você pode adicionar um som ou animação antes
+        window.location.href = "arena.html"; // vai para a seleção de arena
+      }
     });
   });
   
