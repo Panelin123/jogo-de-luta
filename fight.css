@@ -64,6 +64,7 @@ body {
     text-shadow: 0 0 10px #000;
     text-align: center;
     width: 300px;
+    margin-top: 20px;
   }
   
   #name1 { top: 50px; left: 20px; }
