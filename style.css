@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: radial-gradient(circle, #111 30%, #000 100%);
+  color: #f5c518;
+  font-family: 'Cinzel Decorative', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.menu-container {
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.game-title {
+  font-size: 3em;
+  letter-spacing: 3px;
+  color: #f5c518;
+  text-shadow: 0 0 20px red, 0 0 40px #ff0000;
+  margin-bottom: 60px;
+}
+
+.menu-buttons button {
+  display: block;
+  margin: 15px auto;
+  padding: 15px 40px;
+  font-size: 1.2em;
+  background: transparent;
+  border: 2px solid #f5c518;
+  color: #f5c518;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 10px;
+  width: 250px;
+}
+
+.menu-buttons button:hover {
+  background: #f5c518;
+  color: #000;
+  box-shadow: 0 0 15px #f5c518;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
