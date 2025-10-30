@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (p1.hp <= 0 || p2.hp <= 0) {
         bgMusic.pause();
         alert(p1.hp <= 0 ? "Player 2 VENCEU!" : "Player 1 VENCEU!");
-        window.location.href = "menu.html"; // volta pro menu
+        window.location.href = "iniciar.html"; // volta pro menu
         return;
       }
   
